@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -111,7 +111,6 @@
 				C057DAA462775D34CF09BC8B /* Pods-hitchtravel.debug.xcconfig */,
 				EC980810C74FE147B9389963 /* Pods-hitchtravel.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -135,6 +134,7 @@
 				1000AD1C24C0566000930CE7 /* Frameworks */,
 				1000AD1D24C0566000930CE7 /* Resources */,
 				DB78F84E3E8887C9C4B94993 /* [CP] Embed Pods Frameworks */,
+				38A965451B23398A6A8459FF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -193,6 +193,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		38A965451B23398A6A8459FF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-hitchtravel/Pods-hitchtravel-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-hitchtravel/Pods-hitchtravel-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-hitchtravel/Pods-hitchtravel-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		81E5DC824BC2D2AFEEF5E6D0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
