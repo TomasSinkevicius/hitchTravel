@@ -13,6 +13,12 @@ target 'hitchtravel' do
   pod 'Firebase/Firestore'
   pod 'FirebaseFirestoreSwift'
   pod 'GoogleSignIn'
+	pod 'FBSDKCoreKit'  
+	pod 'FBSDKLoginKit'
+	pod 'FBSDKShareKit'
+	pod 'FBSDKPlacesKit'
+
+
 
 
 end
