@@ -84,11 +84,10 @@ class SignUpViewController: UIViewController {
             
             Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
                 
-                
                 if error != nil{
                     
                     // There was an error creating the user
-                    self.showError(message: "Error creating user")
+                    self.showError(message: error!.localizedDescription)
                 }
                 else{
                     
