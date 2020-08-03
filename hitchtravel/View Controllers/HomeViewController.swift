@@ -7,6 +7,11 @@
 //
 
 import UIKit
+import UIKit
+import GoogleSignIn
+import FBSDKLoginKit
+import Firebase
+import FirebaseAuth
 
 class HomeViewController: UIViewController {
 
@@ -14,6 +19,38 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    @IBAction func pazymetiHitchaTapped(_ sender: Any) {
+    }
+    @IBAction func perziuretiHitchusTapped(_ sender: Any) {
+    }
+    @IBAction func logOutButtonTapped(_ sender: Any) {
+        if AccessToken.current != nil{
+            let loginManager = LoginManager()
+            loginManager.logOut()
+            transitionToLoginPage()
+        }
+        if(GIDSignIn.sharedInstance()?.currentUser != nil){
+            GIDSignIn.sharedInstance()?.signOut()
+            transitionToLoginPage()
+        }
+        else{
+            let firebaseAuth = Auth.auth()
+            do {
+              try firebaseAuth.signOut()
+            } catch let signOutError as NSError {
+              print ("Error signing out: %@", signOutError)
+            }
+            transitionToLoginPage()
+        }
+    }
+    func transitionToLoginPage(){
+        let homePage = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as! ViewController
+        let homePageNav = UINavigationController(rootViewController: homePage)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        appDelegate.window?.rootViewController = homePageNav
     }
     
 
