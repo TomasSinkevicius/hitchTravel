@@ -14,10 +14,10 @@
 		1000AD2D24C0566100930CE7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1000AD2B24C0566100930CE7 /* LaunchScreen.storyboard */; };
 		1000AD3524C056A000930CE7 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1000AD3424C056A000930CE7 /* SignUpViewController.swift */; };
 		1000AD3724C056AE00930CE7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1000AD3624C056AE00930CE7 /* LoginViewController.swift */; };
-		1000AD3924C056BC00930CE7 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1000AD3824C056BC00930CE7 /* HomeViewController.swift */; };
 		1000AD3E24C05F8D00930CE7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1000AD3C24C05F8D00930CE7 /* Constants.swift */; };
 		1000AD3F24C05F8D00930CE7 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1000AD3D24C05F8D00930CE7 /* Utilities.swift */; };
 		1000AD4124C0656C00930CE7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1000AD4024C0656C00930CE7 /* GoogleService-Info.plist */; };
+		105E780924D8400D00AE88AC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105E780824D8400D00AE88AC /* HomeViewController.swift */; };
 		55C0C3F311F51B3D8119B8B8 /* Pods_hitchtravel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 364E097D671FF9D15DE52D91 /* Pods_hitchtravel.framework */; };
 /* End PBXBuildFile section */
 
@@ -31,11 +31,11 @@
 		1000AD2E24C0566100930CE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1000AD3424C056A000930CE7 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		1000AD3624C056AE00930CE7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		1000AD3824C056BC00930CE7 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		1000AD3C24C05F8D00930CE7 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1000AD3D24C05F8D00930CE7 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		1000AD4024C0656C00930CE7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		105586A624C9B07800BD0222 /* hitchtravel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = hitchtravel.entitlements; sourceTree = "<group>"; };
+		105E780824D8400D00AE88AC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		364E097D671FF9D15DE52D91 /* Pods_hitchtravel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_hitchtravel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C057DAA462775D34CF09BC8B /* Pods-hitchtravel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hitchtravel.debug.xcconfig"; path = "Target Support Files/Pods-hitchtravel/Pods-hitchtravel.debug.xcconfig"; sourceTree = "<group>"; };
 		EC980810C74FE147B9389963 /* Pods-hitchtravel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-hitchtravel.release.xcconfig"; path = "Target Support Files/Pods-hitchtravel/Pods-hitchtravel.release.xcconfig"; sourceTree = "<group>"; };
@@ -93,7 +93,7 @@
 				1000AD2424C0566100930CE7 /* ViewController.swift */,
 				1000AD3424C056A000930CE7 /* SignUpViewController.swift */,
 				1000AD3624C056AE00930CE7 /* LoginViewController.swift */,
-				1000AD3824C056BC00930CE7 /* HomeViewController.swift */,
+				105E780824D8400D00AE88AC /* HomeViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -258,12 +258,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1000AD3924C056BC00930CE7 /* HomeViewController.swift in Sources */,
 				1000AD3724C056AE00930CE7 /* LoginViewController.swift in Sources */,
 				1000AD3F24C05F8D00930CE7 /* Utilities.swift in Sources */,
 				1000AD3524C056A000930CE7 /* SignUpViewController.swift in Sources */,
 				1000AD2524C0566100930CE7 /* ViewController.swift in Sources */,
 				1000AD2324C0566100930CE7 /* AppDelegate.swift in Sources */,
+				105E780924D8400D00AE88AC /* HomeViewController.swift in Sources */,
 				1000AD3E24C05F8D00930CE7 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

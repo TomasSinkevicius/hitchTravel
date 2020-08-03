@@ -201,115 +201,29 @@
             <point key="canvasLocation" x="1622" y="408"/>
         </scene>
         <!--Home View Controller-->
-        <scene sceneID="lWy-Ag-bUc">
+        <scene sceneID="aZ9-hf-nm9">
             <objects>
-                <viewController storyboardIdentifier="HomeVC" id="h8a-wc-INP" customClass="HomeViewController" customModule="hitchtravel" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="center" id="3ci-g0-eoy">
+                <viewController storyboardIdentifier="HomeVC" id="zil-Ay-RGT" customClass="HomeViewController" customModule="hitchtravel" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="mma-dp-mcE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="NRG-5L-U7B">
-                                <rect key="frame" x="145.5" y="403" width="123" height="90"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xkg-cB-LJQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="123" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="X00-Iw-bQ7"/>
-                                        </constraints>
-                                        <state key="normal" title="Pazymeti hitch'a"/>
-                                        <connections>
-                                            <action selector="pazymetiHitchaTapped:" destination="h8a-wc-INP" eventType="touchUpInside" id="wUw-YY-hBW"/>
-                                            <segue destination="2aM-o0-8gA" kind="show" id="jm7-Tv-70p"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ywV-dV-Wu8">
-                                        <rect key="frame" x="0.0" y="60" width="123" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="6LI-T9-0cD"/>
-                                        </constraints>
-                                        <state key="normal" title="Perziureti hitch'us"/>
-                                        <connections>
-                                            <action selector="perziuretiHitchusTapped:" destination="h8a-wc-INP" eventType="touchUpInside" id="aSm-yM-gmd"/>
-                                            <segue destination="BqW-Qn-IO2" kind="show" id="RWJ-Zh-meI"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                            </stackView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="NRG-5L-U7B" firstAttribute="centerY" secondItem="3ci-g0-eoy" secondAttribute="centerY" id="SkN-yq-rvj"/>
-                            <constraint firstItem="NRG-5L-U7B" firstAttribute="centerX" secondItem="3ci-g0-eoy" secondAttribute="centerX" id="a8O-xS-PU1"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="R5T-98-YQH"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="WN9-wb-CUz">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="2ZN-04-Bry">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="pkV-YX-H7C">
-                                <rect key="frame" x="342" y="7" width="52" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tv3-N8-cUr">
+                                <rect key="frame" x="180" y="433" width="55" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Log out"/>
+                                <state key="normal" title="Log Out"/>
                                 <connections>
-                                    <action selector="logOutButton:" destination="CwJ-p6-tfl" eventType="touchUpInside" id="912-ki-WC8"/>
-                                    <action selector="logOutButtonTapped:" destination="CwJ-p6-tfl" eventType="touchUpInside" id="YVj-yQ-hoH"/>
-                                    <action selector="logOutButtonTapped:" destination="h8a-wc-INP" eventType="touchUpInside" id="vEJ-qn-vt1"/>
+                                    <action selector="logOutTapped:" destination="zil-Ay-RGT" eventType="touchUpInside" id="RhD-xi-BS0"/>
                                 </connections>
                             </button>
-                        </barButtonItem>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Lqy-lP-8Lr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="CwJ-p6-tfl" userLabel="Exit" sceneMemberID="exit"/>
-            </objects>
-            <point key="canvasLocation" x="2472" y="139"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="AXy-Xa-QtP">
-            <objects>
-                <viewController id="2aM-o0-8gA" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="d1h-cO-xEb">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="qlW-My-b6q"/>
+                        <viewLayoutGuide key="safeArea" id="wMC-XB-SP4"/>
                     </view>
-                    <navigationItem key="navigationItem" id="YrA-yw-J5b"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ns8-nz-XXx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0wj-Bj-BuO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3325" y="-143"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="F21-j4-b2T">
-            <objects>
-                <navigationController storyboardIdentifier="HomeVC1" id="lxL-SD-V67" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="g1r-5P-Guk">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="h8a-wc-INP" kind="relationship" relationship="rootViewController" id="65h-aa-EdI"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bcg-AC-EQt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2516" y="-737"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="g4X-nv-5nf">
-            <objects>
-                <viewController id="BqW-Qn-IO2" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="u6f-SN-a8b">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="f9i-Tt-WyZ"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="n4X-PS-bLo"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8vo-Cf-nA0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3325" y="515"/>
+            <point key="canvasLocation" x="2646" y="91"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0Hn-qU-O9y">
