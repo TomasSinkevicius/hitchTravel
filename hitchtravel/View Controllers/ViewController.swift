@@ -21,11 +21,9 @@ class ViewController: UIViewController, LoginButtonDelegate, GIDSignInDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        GIDSignIn.sharedInstance()?.presentingViewController = self
-        
-        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance()?.presentingViewController = self
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
 
         googleButtonSetUp()
         facebookButtonSetUp()
@@ -36,14 +34,15 @@ class ViewController: UIViewController, LoginButtonDelegate, GIDSignInDelegate {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        
         if AccessToken.current != nil{
+            print("You are signed in with facebook")
             transitionToHomePage()
         }
-        if(GIDSignIn.sharedInstance()?.currentUser != nil){
+        if GIDSignIn.sharedInstance()?.currentUser != nil{
+            print("You are signed in with google")
             transitionToHomePage()
         }
-
     }
 
     func transitionToLoginPage(){
@@ -111,9 +110,8 @@ class ViewController: UIViewController, LoginButtonDelegate, GIDSignInDelegate {
             print("there was an error with fb login")
             return
         }
-        print("successful fb login")
+        print("there was no error with fb login")
         showEmailAdress()
-        transitionToHome()
     }
 
     func showEmailAdress(){
@@ -134,6 +132,7 @@ class ViewController: UIViewController, LoginButtonDelegate, GIDSignInDelegate {
                 return
             }
             print(result)
+            self.transitionToHomePage()
         }
     }
     
