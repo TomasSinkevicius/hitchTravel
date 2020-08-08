@@ -40,7 +40,7 @@ class HomeViewController: UIViewController {
                     }
                     transitionToLoginPage()
                 }
-                transitionToLoginPage()
+
     }
         func transitionToLoginPage(){
     

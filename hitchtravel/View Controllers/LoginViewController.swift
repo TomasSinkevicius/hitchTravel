@@ -43,7 +43,6 @@ class LoginViewController: UIViewController {
         let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         
         Auth.auth().signIn(withEmail: email, password: password) { (result, error) in
-            
             if error != nil{
                 
                 self.errorLabel.text = error!.localizedDescription

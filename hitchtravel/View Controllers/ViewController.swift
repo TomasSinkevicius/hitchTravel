@@ -29,7 +29,6 @@ class ViewController: UIViewController, LoginButtonDelegate, GIDSignInDelegate {
         facebookButtonSetUp()
 
         setUpElements()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -78,22 +77,19 @@ class ViewController: UIViewController, LoginButtonDelegate, GIDSignInDelegate {
                return
            }
            else{
-
-               print("You are signed in")
+            print("You are signed in")
+            self.transitionToHomePage()
            }
-
            guard let authentication = user.authentication else { return }
-           let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
-                                                          accessToken: authentication.accessToken)
+           let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
            Auth.auth().signIn(with: credential) { (user, error) in
                if let error = error{
                 print(error.localizedDescription)
                }
                else{
-                   print("Successfuly created firebase user with google account")
+                print("Successfuly created firebase user with google account")
                }
            }
-        transitionToHome()
        }
 
        func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
