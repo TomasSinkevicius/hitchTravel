@@ -21,29 +21,27 @@ class ViewController: UIViewController, LoginButtonDelegate, GIDSignInDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        GIDSignIn.sharedInstance()?.presentingViewController = self
-        
-        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
         GIDSignIn.sharedInstance().delegate = self
         GIDSignIn.sharedInstance()?.presentingViewController = self
+        GIDSignIn.sharedInstance().clientID = FirebaseApp.app()?.options.clientID
 
         googleButtonSetUp()
         facebookButtonSetUp()
 
         setUpElements()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-
+        
         if AccessToken.current != nil{
+            print("You are signed in with facebook")
             transitionToHomePage()
         }
-        if(GIDSignIn.sharedInstance()?.currentUser != nil){
+        if GIDSignIn.sharedInstance()?.currentUser != nil{
+            print("You are signed in with google")
             transitionToHomePage()
         }
-
     }
 
     func transitionToLoginPage(){
@@ -79,22 +77,19 @@ class ViewController: UIViewController, LoginButtonDelegate, GIDSignInDelegate {
                return
            }
            else{
-
-               print("You are signed in")
+            print("You are signed in")
+            self.transitionToHomePage()
            }
-
            guard let authentication = user.authentication else { return }
-           let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken,
-                                                          accessToken: authentication.accessToken)
+           let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
            Auth.auth().signIn(with: credential) { (user, error) in
                if let error = error{
                 print(error.localizedDescription)
                }
                else{
-                   print("Successfuly created firebase user with google account")
+                print("Successfuly created firebase user with google account")
                }
            }
-        transitionToHome()
        }
 
        func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
@@ -111,9 +106,8 @@ class ViewController: UIViewController, LoginButtonDelegate, GIDSignInDelegate {
             print("there was an error with fb login")
             return
         }
-        print("successful fb login")
+        print("there was no error with fb login")
         showEmailAdress()
-        transitionToHome()
     }
 
     func showEmailAdress(){
@@ -134,6 +128,7 @@ class ViewController: UIViewController, LoginButtonDelegate, GIDSignInDelegate {
                 return
             }
             print(result)
+            self.transitionToHomePage()
         }
     }
     

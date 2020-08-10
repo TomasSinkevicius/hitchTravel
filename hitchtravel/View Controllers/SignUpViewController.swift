@@ -64,7 +64,6 @@ class SignUpViewController: UIViewController {
         return nil
     }
 
-    
     @IBAction func signUpTapped(_ sender: Any) {
         
         let error = validateField()
@@ -91,7 +90,6 @@ class SignUpViewController: UIViewController {
                    self.showError(message: error!.localizedDescription)
                 }
                 else{
-                    
                     // User was created successfuly
                     let db = Firestore.firestore()
                     
@@ -100,14 +98,10 @@ class SignUpViewController: UIViewController {
                             self.showError(message: "ERROR saving user data")
                         }
                     })
-                    
                     self.transitionToHome()
-                    
                 }
             }
         }
-        
-        
     }
     
     func showError( message:String){
