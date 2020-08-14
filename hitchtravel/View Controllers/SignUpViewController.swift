@@ -10,6 +10,7 @@ import UIKit
 import FirebaseAuth
 import Firebase
 import FirebaseFirestore
+import FirebaseDatabase
 
 class SignUpViewController: UIViewController {
 
@@ -58,7 +59,7 @@ class SignUpViewController: UIViewController {
         
         if Utilities.isPasswordValid(cleanedPassword) == false{
             // Password isint secure enough
-            return "Please make sure your password has 8 letters"
+            return "Please make sure your password has 8 letters and a number"
         }
         
         return nil
@@ -83,7 +84,6 @@ class SignUpViewController: UIViewController {
             
             Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
                 
-                
                 if error != nil{
                     
                     // There was an error creating the user
@@ -91,14 +91,20 @@ class SignUpViewController: UIViewController {
                 }
                 else{
                     // User was created successfuly
+                    // Saving to firestore database
                     let db = Firestore.firestore()
-                    
                     db.collection("users").addDocument(data: ["firstName": firstName, "lastName": lastName, "email": email, "password": password, "uid": result!.user.uid], completion: { (error) in
                         if error != nil{
                             self.showError(message: "ERROR saving user data")
                         }
                     })
-                    self.transitionToHome()
+                    //self.transitionToHome()
+                    // Saving to realtime database
+                    self.saveProfile(firstName: firstName, lastName: lastName, email: email, password: password){ success in
+                        if success{
+                            self.dismiss(animated: true, completion: nil)
+                        }
+                    }
                 }
             }
         }
@@ -107,6 +113,23 @@ class SignUpViewController: UIViewController {
     func showError( message:String){
         errorLabel.text = message
         errorLabel.alpha = 1
+    }
+    func saveProfile(firstName: String, lastName: String, email: String, password: String, completion: @escaping ((_ success: Bool)->())) {
+        
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        let databaseRef = Database.database().reference().child("users/profile/\(uid)")
+        
+        let userObject = [
+            "firstName": firstName,
+            "lastName" : lastName,
+            "email" : email,
+            "password" : password
+            
+        ] as [String:Any]
+        databaseRef.setValue(userObject) {error, ref in
+            completion(error == nil)
+        }
+        
     }
     
     func transitionToHome(){

@@ -9,18 +9,16 @@
 import UIKit
 import Foundation
 import Firebase
+import GoogleSignIn
+import FBSDKLoginKit
+import FirebaseAuth
+import FirebaseDatabase
 
 class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var tableView:UITableView!
     
-    var posts = [
-        Post(id: "1", author: "Tomas Sinkevicius", startDestination: "Kaunas", endDestination: "Sakiai", time: "15:30"),
-        Post(id: "2", author: "Romas Sinkevicius", startDestination: "Vilnius", endDestination: "Kaunas", time: "15:30"),
-        Post(id: "3", author: "Lukas Kaminskas", startDestination: "Kaunas", endDestination: "Sakiai", time: "16:30"),
-        Post(id: "4", author: "Audrius Ziurgzdys", startDestination: "Kaunas", endDestination: "Sakiai", time: "16:30"),
-        Post(id: "5", author: "Alanas Chokas", startDestination: "Gelgaudiskis", endDestination: "Sakiai", time: "17:30")
-    ]
+    var posts = [Post]()
     
     
     override func viewDidLoad() {
@@ -45,9 +43,95 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.dataSource = self
         tableView.tableFooterView = UIView()
         tableView.reloadData()
+        
+        observePosts()
 
         // Do any additional setup after loading the view.
     }
+    func observePosts(){
+        print("its working")
+        let postsRef = Database.database().reference().child("posts")
+        postsRef.observe(.value, with: {snapshot in
+            
+            var tempPosts = [Post]()
+            for child in snapshot.children{
+                if let childSnapshot = child as? DataSnapshot,
+                    let dict = childSnapshot.value as? [String:Any],
+                    let author = dict["author"] as? [String:Any],
+                    let uid = author["uid"] as? String,
+                    let firstName = author["firstName"] as? String,
+                    let lastName = author["lastName"] as? String,
+                    let startPoint = dict["startPoint"] as? String,
+                    let endPoint = dict["endPoint"] as? String,
+                    let time = dict["time"] as? String,
+                    let timestamp = dict["timestamp"] as? Double{
+                    
+                    let userProfile = UserProfile(uid: uid, firstName: firstName, lastName: lastName)
+                    let post = Post(id: childSnapshot.key, author: userProfile, startPoint: startPoint, endPoint: endPoint, time: time, timestamp: timestamp)
+                    tempPosts.append(post)
+                    
+                }
+            }
+            self.posts = tempPosts
+            self.tableView.reloadData()
+            
+        })
+    }
+//    @IBAction func logOutTapped(_ sender: Any) {
+//                if AccessToken.current != nil{
+//                    let loginManager = LoginManager()
+//                    loginManager.logOut()
+//                    transitionToLoginPage()
+//                }
+//                if(GIDSignIn.sharedInstance()?.currentUser != nil){
+//                    GIDSignIn.sharedInstance()?.signOut()
+//                    transitionToLoginPage()
+//                }
+//                else{
+//                    let firebaseAuth = Auth.auth()
+//                    do {
+//                      try firebaseAuth.signOut()
+//                    } catch let signOutError as NSError {
+//                      print ("Error signing out: %@", signOutError)
+//                    }
+//                    transitionToLoginPage()
+//                }
+//        try! Auth.auth().signOut()
+//        print("wtf man")
+//
+//    }
+    
+    @IBAction func logOutTapped(_ sender: Any) {
+        if AccessToken.current != nil{
+            let loginManager = LoginManager()
+            loginManager.logOut()
+            transitionToLoginPage()
+            print("logged out of facebook")
+        }
+        if(GIDSignIn.sharedInstance()?.currentUser != nil){
+            GIDSignIn.sharedInstance()?.signOut()
+            transitionToLoginPage()
+            print("logged out of google")
+        }
+        else{
+            let firebaseAuth = Auth.auth()
+            do {
+                try firebaseAuth.signOut()
+                print("logged out of standart")
+            } catch let signOutError as NSError {
+                print ("Error signing out: %@", signOutError)
+            }
+                            //transitionToLoginPage()
+        }
+    }
+    func transitionToLoginPage(){
+    
+            let homePage = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC") as! ViewController
+            let homePageNav = UINavigationController(rootViewController: homePage)
+            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
+            appDelegate.window?.rootViewController = homePageNav
+        }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -60,4 +144,5 @@ class SearchViewController: UIViewController, UITableViewDelegate, UITableViewDa
         cell.set(post: posts[indexPath.row])
         return cell
     }
+    
 }

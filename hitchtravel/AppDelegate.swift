@@ -11,6 +11,7 @@ import Firebase
 import GoogleSignIn
 import FirebaseAuth
 import FBSDKCoreKit
+import FirebaseDatabase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate{
@@ -22,6 +23,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        
+        
+        
+        // email login current state listener
+        let authListener = Auth.auth().addStateDidChangeListener{ auth,
+            user in
+            
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            
+            if user != nil{
+                //
+                UserService.observeUserProfile(user!.uid) { userProfile in
+                    UserService.currentUserProfile = userProfile
+                }
+                let controller =
+                    storyboard.instantiateViewController(withIdentifier: "MainTabBarController") as! UITabBarController
+                
+                self.window?.rootViewController = controller
+                self.window?.makeKeyAndVisible()
+            }
+            else{
+                UserService.currentUserProfile = nil
+                let controller =
+                    storyboard.instantiateViewController(withIdentifier: "LoginVC") as! ViewController
+
+                self.window?.rootViewController = controller
+                self.window?.makeKeyAndVisible()
+            }
+        }
+        
         
         ApplicationDelegate.shared.application(application,didFinishLaunchingWithOptions: launchOptions
         )
