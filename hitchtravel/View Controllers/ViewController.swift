@@ -31,16 +31,17 @@ class ViewController: UIViewController, LoginButtonDelegate, GIDSignInDelegate {
         setUpElements()
     }
     
+    // This somehow has to be moved to app delegate
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         if AccessToken.current != nil{
             print("You are signed in with facebook")
-            transitionToHomePage()
+            transitionToHomeTabBar()
         }
         if GIDSignIn.sharedInstance()?.currentUser != nil{
             print("You are signed in with google")
-            transitionToHomePage()
+            transitionToHomeTabBar()
         }
     }
 
@@ -58,6 +59,15 @@ class ViewController: UIViewController, LoginButtonDelegate, GIDSignInDelegate {
 
         appDelegate.window?.rootViewController = homePageNav
     }
+    
+    func transitionToHomeTabBar(){
+        let homePage = self.storyboard?.instantiateViewController(withIdentifier: "MainTabBarController") as! UITabBarController
+        let homePageNav = UINavigationController(rootViewController: homePage)
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
+        appDelegate.window?.rootViewController = homePageNav
+    }
+    
     func googleButtonSetUp(){
         let googleLoginButton = GIDSignInButton()
         googleLoginButton.frame = CGRect(x: 44, y: 300, width: view.frame.width - 87, height: 50)
@@ -78,7 +88,7 @@ class ViewController: UIViewController, LoginButtonDelegate, GIDSignInDelegate {
            }
            else{
             print("You are signed in")
-            self.transitionToHomePage()
+            //self.transitionToHomePage()
            }
            guard let authentication = user.authentication else { return }
            let credential = GoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
@@ -128,7 +138,7 @@ class ViewController: UIViewController, LoginButtonDelegate, GIDSignInDelegate {
                 return
             }
             print(result)
-            self.transitionToHomePage()
+            //self.transitionToHomePage()
         }
     }
     

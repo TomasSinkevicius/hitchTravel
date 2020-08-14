@@ -51,7 +51,7 @@ class LoginViewController: UIViewController {
             
             else{
                 
-                self.transitionToHome()
+                //self.transitionToHome()
             }
         }
     }

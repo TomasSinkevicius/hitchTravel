@@ -10,16 +10,18 @@ import Foundation
 
 class Post {
     var id: String
-    var author: String
-    var startDestination: String
-    var endDestination: String
+    var author: UserProfile
+    var startPoint: String
+    var endPoint: String
     var time: String
+    var timestamp:Double
     
-    init(id: String, author: String, startDestination: String, endDestination: String, time: String){
+    init(id: String, author: UserProfile, startPoint: String, endPoint: String, time: String, timestamp: Double){
         self.id = id
         self.author = author
-        self.startDestination = startDestination
-        self.endDestination = endDestination
+        self.startPoint = startPoint
+        self.endPoint = endPoint
         self.time = time
+        self.timestamp = timestamp
     }
 }

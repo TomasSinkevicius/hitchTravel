@@ -18,7 +18,11 @@
 		1000AD3F24C05F8D00930CE7 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1000AD3D24C05F8D00930CE7 /* Utilities.swift */; };
 		1000AD4124C0656C00930CE7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1000AD4024C0656C00930CE7 /* GoogleService-Info.plist */; };
 		1003944824DC2EF2007EDC0A /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1003944724DC2EF2007EDC0A /* SearchViewController.swift */; };
+		101BAB6324E6C37300569EF5 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101BAB6224E6C37300569EF5 /* UserService.swift */; };
 		105E780924D8400D00AE88AC /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105E780824D8400D00AE88AC /* HomeViewController.swift */; };
+		10CA81E524E55A2500C70825 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CA81E424E55A2500C70825 /* MainTabBarController.swift */; };
+		10CA81E724E566F300C70825 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CA81E624E566F300C70825 /* NewPostViewController.swift */; };
+		10CA81E924E56D1100C70825 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10CA81E824E56D1100C70825 /* UserProfile.swift */; };
 		10EF8F3E24DC33D5007CCC10 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EF8F3C24DC33D5007CCC10 /* PostTableViewCell.swift */; };
 		10EF8F3F24DC33D5007CCC10 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 10EF8F3D24DC33D5007CCC10 /* PostTableViewCell.xib */; };
 		10EF8F4224DD7545007CCC10 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EF8F4124DD7545007CCC10 /* Post.swift */; };
@@ -39,8 +43,12 @@
 		1000AD3D24C05F8D00930CE7 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		1000AD4024C0656C00930CE7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1003944724DC2EF2007EDC0A /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		101BAB6224E6C37300569EF5 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		105586A624C9B07800BD0222 /* hitchtravel.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = hitchtravel.entitlements; sourceTree = "<group>"; };
 		105E780824D8400D00AE88AC /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		10CA81E424E55A2500C70825 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		10CA81E624E566F300C70825 /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
+		10CA81E824E56D1100C70825 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		10EF8F3C24DC33D5007CCC10 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		10EF8F3D24DC33D5007CCC10 /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 		10EF8F4124DD7545007CCC10 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
@@ -87,9 +95,8 @@
 				1000AD3A24C056CC00930CE7 /* View Controllers */,
 				10EF8F4024DD7533007CCC10 /* Models */,
 				1000AD2224C0566100930CE7 /* AppDelegate.swift */,
+				101BAB6224E6C37300569EF5 /* UserService.swift */,
 				1000AD2624C0566100930CE7 /* Main.storyboard */,
-				10EF8F3C24DC33D5007CCC10 /* PostTableViewCell.swift */,
-				10EF8F3D24DC33D5007CCC10 /* PostTableViewCell.xib */,
 				1000AD2924C0566100930CE7 /* Assets.xcassets */,
 				1000AD2B24C0566100930CE7 /* LaunchScreen.storyboard */,
 				1000AD4024C0656C00930CE7 /* GoogleService-Info.plist */,
@@ -101,11 +108,15 @@
 		1000AD3A24C056CC00930CE7 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				10EF8F3C24DC33D5007CCC10 /* PostTableViewCell.swift */,
+				10EF8F3D24DC33D5007CCC10 /* PostTableViewCell.xib */,
 				1000AD2424C0566100930CE7 /* ViewController.swift */,
 				1000AD3424C056A000930CE7 /* SignUpViewController.swift */,
 				1000AD3624C056AE00930CE7 /* LoginViewController.swift */,
 				105E780824D8400D00AE88AC /* HomeViewController.swift */,
 				1003944724DC2EF2007EDC0A /* SearchViewController.swift */,
+				10CA81E424E55A2500C70825 /* MainTabBarController.swift */,
+				10CA81E624E566F300C70825 /* NewPostViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -123,6 +134,7 @@
 			isa = PBXGroup;
 			children = (
 				10EF8F4124DD7545007CCC10 /* Post.swift */,
+				10CA81E824E56D1100C70825 /* UserProfile.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -281,14 +293,18 @@
 			files = (
 				1000AD3724C056AE00930CE7 /* LoginViewController.swift in Sources */,
 				1000AD3F24C05F8D00930CE7 /* Utilities.swift in Sources */,
+				10CA81E524E55A2500C70825 /* MainTabBarController.swift in Sources */,
 				1000AD3524C056A000930CE7 /* SignUpViewController.swift in Sources */,
 				1003944824DC2EF2007EDC0A /* SearchViewController.swift in Sources */,
+				10CA81E724E566F300C70825 /* NewPostViewController.swift in Sources */,
 				1000AD2524C0566100930CE7 /* ViewController.swift in Sources */,
 				1000AD2324C0566100930CE7 /* AppDelegate.swift in Sources */,
 				10EF8F3E24DC33D5007CCC10 /* PostTableViewCell.swift in Sources */,
 				105E780924D8400D00AE88AC /* HomeViewController.swift in Sources */,
 				1000AD3E24C05F8D00930CE7 /* Constants.swift in Sources */,
 				10EF8F4224DD7545007CCC10 /* Post.swift in Sources */,
+				101BAB6324E6C37300569EF5 /* UserService.swift in Sources */,
+				10CA81E924E56D1100C70825 /* UserProfile.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

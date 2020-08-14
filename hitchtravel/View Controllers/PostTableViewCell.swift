@@ -11,8 +11,8 @@ import UIKit
 class PostTableViewCell: UITableViewCell {
 
     @IBOutlet weak var timeLabel: UILabel!
-    @IBOutlet weak var destinationEndLabel: UILabel!
-    @IBOutlet weak var destinationStartLabel: UILabel!
+    @IBOutlet weak var endPointLabel: UILabel!
+    @IBOutlet weak var startPointLabel: UILabel!
     @IBOutlet weak var subtitleLabel: UILabel!
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
@@ -31,9 +31,11 @@ class PostTableViewCell: UITableViewCell {
     }
     
     func set(post: Post){
-        usernameLabel.text = post.author
-        destinationStartLabel.text = post.startDestination
-        destinationEndLabel.text = post.endDestination
+        print("its working")
+        let username = post.author.firstName + " " + post.author.lastName
+        usernameLabel.text = username
+        startPointLabel.text = post.startPoint
+        endPointLabel.text = post.endPoint
         timeLabel.text = post.time
     }
     
